@@ -13,7 +13,9 @@ public class DiscordBot {
         {
             case "credits":
                 this.sendMessage(event, BotCommands.credits());
-                System.out.println("Fulfilled command : " + command);
+                break;
+            case "paperclip":
+                this.sendMessage(event, BotCommands.paperclip());
                 break;
         }
     }

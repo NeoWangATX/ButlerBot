@@ -7,7 +7,7 @@ import net.dv8tion.jda.core.hooks.ListenerAdapter;
 import javax.security.auth.login.LoginException;
 
 public class Main extends ListenerAdapter{
-    DiscordBot bot = new DiscordBot();;
+    private DiscordBot bot = new DiscordBot();;
     public static void main(String[] args) throws LoginException
     {
         JDABuilder builder = new JDABuilder(AccountType.BOT);
@@ -33,7 +33,7 @@ public class Main extends ListenerAdapter{
         if((event.getMessage().getContentRaw().charAt(0) + "").equals(BotConfiguration.BOT_PREFIX))
         {
             String messageContent = event.getMessage().getContentRaw().substring(1);
-            System.out.println(event.getAuthor().getName() + " has invoked : " + messageContent);
+            System.out.println("<@" + event.getAuthor().getId() + "> has invoked : " + messageContent);
 
             bot.executeCommand(messageContent, event);
         }
